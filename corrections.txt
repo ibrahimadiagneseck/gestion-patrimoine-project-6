@@ -1,0 +1,10 @@
+<button type="submit" id="agent-form" hidden [disabled]="AgentForm.invalid" 
+    class="btn btn-myprimary fw-bold mx-2" data-bs-toggle="tooltip" title="cliquer ici pour ajouter">
+    Valider
+</button>
+
+
+"myprimary": #aedd71, //#E7C133 FFD845 C4A42B E7C133 aedd71
+
+
+{{ codeUniteDouaniere?.nomUniteDouaniere }} // les ? pour eviter les erreurs : {{agent.codeSection ? agent.codeSection.libelleSection : 'N/A'}}

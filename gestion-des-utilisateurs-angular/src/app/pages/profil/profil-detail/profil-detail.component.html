@@ -1,0 +1,126 @@
+<div class="card shadow">
+
+  <ng-container *ngIf="afficherPopupDetail; else modifier">
+      <div class="card-header text-center fw-bold bg-myprimary fs-5">
+          Détail
+      </div>
+
+      <div class="card-body">
+
+        <div class="container">
+
+            <div class="text-center fw-bolder bg-myprimary mt-1" role="alert">
+               profil
+            </div>
+
+            <div class="container px-3 py-2">
+                <form class="container px-3 py-2">
+
+                    <div class="row g-4 mb-3">
+                        <div class="col-3 mx-auto">
+                            <span class="fw-bold">Code</span>
+                            <div class="text-input"> {{ authority.code }} </div>
+                        </div>
+
+
+                        <div class="col-7 mx-auto">
+                            <span class="fw-bold">Profil</span>
+                            <div class="text-input text-uppercase"> {{ authority.name }} </div>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+          </div>
+
+
+
+            <div class="container px-3 py-2">
+              <div class="row">
+                  <div class="col-12 text-end">
+                      <button  (click)="supprimerAuthority(authority.code)" type="button" class="btn btn-mybrown fw-bold mx-2" data-bs-toggle="tooltip" title="cliquer ici pour supprimer">
+                          Supprimer
+                      </button>
+
+                      <button (click)="popupModifier()"  type="button" class="btn btn-myprimary fw-bold mx-2" data-bs-toggle="tooltip" title="cliquer ici pour modifier">
+                          Modifier
+                      </button>
+
+                      <button (click)="popupFermer()" type="button" class="btn btn-mysecondary fw-bold mx-2"
+                          data-bs-toggle="tooltip" title="cliquer ici pour retourner">
+                          Retour
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-container>
+
+  <ng-template #modifier>
+      <div class="card-header text-center fw-bold bg-myprimary fs-5">
+          Modifier profil
+      </div>
+
+      <div class="card-body">
+
+          <div class="container px-3 py-2">
+              <form class="form" #AuthorityForm="ngForm" (ngSubmit)="modifierAuthoriti(AuthorityForm)">
+
+                  <div class="row g-4 mb-3">
+                      <div class="col-3 mx-auto form-group">
+
+                        <label for="code" class="form-label fw-bold">Code</label>
+                        <input id="code" type="text" name="code" required [(ngModel)]="authority.code" class="text-input form-control bg-mywhite border  border-myprimary px-1 text-uppercase">
+
+                      </div>
+
+                      <div class="col-3 mx-auto form-group">
+                          <label for="name" class="form-label fw-bold">Profil</label>
+                          <input id="name" type="text" name="name" required [(ngModel)]="authority.name" class="text-input form-control bg-mywhite border  border-myprimary px-1 text-uppercase">
+                      </div>
+
+
+                      <div  class="col-3 mx-auto form-group">
+
+                      </div>
+
+
+                  </div>
+
+
+                  <div class="row">
+                      <div class="col-12 text-end">
+                          <button type="submit" id="authority-form" hidden class="btn btn-myprimary fw-bold mx-2" data-bs-toggle="tooltip" title="cliquer ici pour modifier">
+                              Valider
+                          </button>
+                      </div>
+                  </div>
+
+              </form>
+          </div>
+
+          <div class="container px-3 py-2">
+              <div class="row">
+                  <div class="col-12 text-end">
+                      <button (click)="submitForm()" type="button" [disabled]="AuthorityForm.invalid" class="btn btn-myprimary fw-bold mx-2" data-bs-toggle="tooltip" title="cliquer ici pour modifier">
+                          Valider
+                      </button>
+
+                      <button (click)="PopupDetail()" type="button" class="btn btn-mysecondary fw-bold mx-2" data-bs-toggle="tooltip" title="cliquer ici pour retourner">
+                          Retour
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+
+</div>
+
+
+
+
+
+
+

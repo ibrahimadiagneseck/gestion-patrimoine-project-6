@@ -1,0 +1,64 @@
+<div class="container-fluid bg-mywhite h-100">
+    <div class="row">
+
+      <ul style="list-style-type: none; margin: 0; padding: 0;">
+        <li class="my-2">
+          <button [routerLink]="'/accueil'" class="menu-button" href="#">
+            <mat-icon class="me-4" fontIcon="home"></mat-icon> Accueil
+          </button>
+        </li>
+
+  
+
+        <li class="my-2">
+          <button class="menu-button" [routerLink]="'/agent-liste'">
+            <mat-icon class="me-4">contact_mail</mat-icon> Agents
+          </button>
+        </li>
+
+        <li class="my-2">
+          <button class="menu-button" [routerLink]="'/profil'">
+            <mat-icon  class="me-4">account_circle</mat-icon>Profil
+          </button>
+        </li>
+
+        <li class="my-2">
+          <button class="menu-button" [routerLink]="'/utilisateur-liste'">
+            <mat-icon class="me-4">person_add</mat-icon> Utilisateurs
+          </button>
+        </li>
+
+
+        <li class="my-2">
+          <button class="menu-button" [routerLink]="'/secteur-activite'">
+            <mat-icon class="me-4"> local_activity</mat-icon> Secteur Activité
+          </button>
+        </li>
+
+        <li class="my-2">
+          <button class="menu-button" [routerLink]="'/prestataire'">
+            <mat-icon class="me-4">contact_mail</mat-icon> Prestataires
+          </button>
+        </li>
+
+
+        <li class="my-2">
+          <button class="menu-button" [routerLink]="'/unite-douaniere'">
+            <!-- <mat-icon class="me-4">work</mat-icon> Prestataire -->
+            <mat-icon class="me-4">supervised_user_circle</mat-icon> Unités Douanières
+          </button>
+        </li>
+
+        <li class="my-2">
+          <button class="menu-button" [routerLink]="'/section'">
+            <!-- <mat-icon class="me-4">work</mat-icon> Prestataire -->
+            <mat-icon class="me-4">party_mode</mat-icon> Sections
+          </button>
+        </li>
+
+
+
+      </ul>
+
+    </div>
+  </div>
