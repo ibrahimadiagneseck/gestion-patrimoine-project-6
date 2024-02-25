@@ -73,7 +73,7 @@ private doesAuthorityMatchTerm(authority: Authority, term: string): boolean {
   }
 
   public modifierAuthority(authority: Authority): Observable<Authority> {
-    return this.httpClient.post<Authority>(`${this.urlServeur}/ModifierAuthority`, authority, { withCredentials: true });
+    return this.httpClient.put<Authority>(`${this.urlServeur}/ModifierAuthority`, authority, { withCredentials: true });
   }
 
   public supprimerAuthorityById(authorityId: string): Observable<CustomHttpRespone> {

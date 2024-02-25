@@ -1,5 +1,4 @@
 import { Section } from "jspdf-autotable";
-import { CorpsAgent } from "./corps-agent.model";
 import { UniteDouaniere } from "./unite-douaniere.model";
 import { Sections } from "./sections.model";
 import { MyDate } from "./date.model";

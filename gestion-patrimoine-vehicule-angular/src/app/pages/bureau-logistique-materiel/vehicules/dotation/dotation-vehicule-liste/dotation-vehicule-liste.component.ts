@@ -15,6 +15,7 @@ import { ArticleBonPour } from 'src/app/model/article-bon-pour.model';
 import { BonPour } from 'src/app/model/bon-pour.model';
 import { ArticleBonPourService } from 'src/app/services/article-bon-pour.service';
 import { BonPourService } from 'src/app/services/bon-pour.service';
+import { DotationVehiculeAjouterComponent } from '../dotation-vehicule-ajouter/dotation-vehicule-ajouter.component';
 
 @Component({
   selector: 'app-dotation-vehicule-liste',
@@ -77,7 +78,7 @@ export class DotationVehiculeListeComponent implements OnInit, OnDestroy {
   /* ----------------------------------------------------------------------------------------- */
   // tableau
   columnsDateFormat: string[] = [
-    "dateArriveBLM"
+    "dateArriveDLF"
   ];
   columnsToHide: string[] = [
     // "nombreArme",
@@ -87,16 +88,18 @@ export class DotationVehiculeListeComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<BonPour>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = [
-
+    "numeroCourrielOrigine",
     "etatBP",
-    "dateArriveBLM",
+    "dateArriveDLF",
     "rowNomUnite"
 
   ];
   displayedColumnsCustom: string[] = [
+
+    "N° courrier origine",
     "Etat bon pour",
     "Date arrivéé BLM",
-     "Unité",
+     "Unité"
   ];
   /* ----------------------------------------------------------------------------------------- */
 
@@ -283,6 +286,9 @@ export class DotationVehiculeListeComponent implements OnInit, OnDestroy {
   popupAjouterDotation(): void {
     this.router.navigate(['/dotation-vehicule-detail', '', '']);
   }
+
+
+
 
   // goToDetail(articleBonPour: ArticleBonPour): void {
   //   const identifiantBP = articleBonPour.identifiantBP.identifiantBP;

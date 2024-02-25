@@ -15,7 +15,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Section } from 'jspdf-autotable';
 import { Sections } from 'src/app/model/sections.model';
-import { CorpsAgent } from 'src/app/model/corps-agent.model';
 import { AgentService } from 'src/app/services/agent.service';
 import { Agent } from 'src/app/model/agent.model';
 // import { CorpsAgentService } from 'src/app/services/corps-agent.service';

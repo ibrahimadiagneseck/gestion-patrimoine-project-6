@@ -33,6 +33,7 @@ import { Vehicule } from 'src/app/model/vehicule.model';
 import { VehiculeService } from 'src/app/services/vehicule.service';
 import { BonPourService } from 'src/app/services/bon-pour.service';
 import { TypeObjet } from 'src/app/model/type-objet.model';
+import { DotationVehiculeAjouterComponent } from '../dotation-vehicule-ajouter/dotation-vehicule-ajouter.component';
 
 @Component({
   selector: 'app-dotation-vehicule-detail',
@@ -46,6 +47,8 @@ export class DotationVehiculeDetailComponent implements OnInit, OnDestroy {
 
 
   rowNumber!: number;
+  rowQuantiteAccorde!: number;
+
 
 
 
@@ -102,6 +105,7 @@ export class DotationVehiculeDetailComponent implements OnInit, OnDestroy {
     // "codeArticleBonPour",
     "libelleArticleBonPour",
     "quantiteDemandee",
+    "rowQuantiteAccorde",
     "rowCodeTypeObjet"
 
 
@@ -111,6 +115,7 @@ export class DotationVehiculeDetailComponent implements OnInit, OnDestroy {
     // "Code article",
     "Libellé article",
     "Quantité Demandée",
+    "Quantité Accordée",
     "Type objet"
 
 
@@ -270,12 +275,14 @@ export class DotationVehiculeDetailComponent implements OnInit, OnDestroy {
     }).sort((a, b) => Number(a.quantiteDemandee) - Number(b.quantiteDemandee));
 
     this.rowNumber = 1;
+    this.rowQuantiteAccorde= 0;
 
     // this.dataSource = new MatTableDataSource<IVehicule>(this.vehicules);
     this.dataSource = new MatTableDataSource<ArticleBonPour>(articleBonPours.map((item) => ({
       ...item,
       rowCodeTypeObjet: item.codeTypeObjet.libelleTypeObjet,
       rowNumber: this.rowNumber++,
+      rowQuantiteAccorde: this.rowQuantiteAccorde,
     })));
 
 
@@ -568,6 +575,22 @@ export class DotationVehiculeDetailComponent implements OnInit, OnDestroy {
       //   // console.log(this.secteurActivitesSelect);
       // }
       // ----------------------------------
+      this.ngOnInit();
+    });
+  }
+
+
+  popupAjouterDotationVehicule(): void {
+    const dialogRef = this.matDialog.open(
+      DotationVehiculeAjouterComponent,
+      {
+        width: '80%',
+        enterAnimationDuration: '100ms',
+        exitAnimationDuration: '100ms'
+      }
+    );
+
+    dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit();
     });
   }

@@ -150,3 +150,10 @@ INSERT INTO "utilisateur_authority" ("utilisateur_id", "code") VALUES
 
 
 
+
+
+
+n ° sommier : code corps agent
+
+cle non modifiable
+

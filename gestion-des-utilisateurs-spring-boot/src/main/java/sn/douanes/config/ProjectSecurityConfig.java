@@ -61,7 +61,7 @@ public class ProjectSecurityConfig {
                         // .requestMatchers("/user").authenticated()
                         // .requestMatchers("/notices","/contact","/register").permitAll())
                         // .requestMatchers("/connexion").authenticated()
-                        // .requestMatchers("/inscription").permitAll()
+                        // .requestMatchers("/**").permitAll()
 
                         .requestMatchers("/Authorities").authenticated()
                         .requestMatchers("/Users").authenticated()
@@ -112,6 +112,15 @@ public class ProjectSecurityConfig {
                         .requestMatchers("/ModifierTypeUniteDouaniere").authenticated()
                         .requestMatchers("/SupprimerTypeUniteDouaniereById/*").authenticated()
 
+                        .requestMatchers("/TypeUniteDouanieres").authenticated()
+                        .requestMatchers("/AjouterTypeUniteDouaniere").authenticated()
+                        .requestMatchers("/ModifierTypeUniteDouaniere").authenticated()
+                        .requestMatchers("/SupprimerTypeUniteDouaniereById/*").authenticated()
+
+                        .requestMatchers("/Sections").authenticated()
+                        .requestMatchers("/AjouterSections").authenticated()
+                        .requestMatchers("/ModifierSections").authenticated()
+                        .requestMatchers("/SupprimerSectionsById/*").authenticated()
 
                 )
                 .formLogin(Customizer.withDefaults())

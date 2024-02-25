@@ -25,10 +25,7 @@ public class GestionDesUtilisateursUsernamePwdAuthenticationProvider implements 
 
     @Autowired
     private UtilisateurRepository utilisateurRepository;
-
-    @Autowired
-    private AgentRepository agentRepository;
-
+    
     @Autowired
     private PasswordEncoder passwordEncoder;
 

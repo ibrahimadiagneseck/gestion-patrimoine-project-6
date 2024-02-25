@@ -4,8 +4,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { NotificationType } from 'src/app/enum/notification-type.enum';
 import { CustomHttpRespone } from 'src/app/model/custom-http-response.model';
+import { AuthorityService } from 'src/app/services/authority.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { PrestatairesService } from 'src/app/services/prestataires.service';
+import { SecteurActiviteService } from 'src/app/services/secteur-activite.service';
+import { SectionsService } from 'src/app/services/sections.service';
 // import { UtilisateurService } from 'src/app/services/utilisateur.service';
 import { VehiculeService } from 'src/app/services/vehicule.service';
 
@@ -21,7 +24,9 @@ export class PopupConfirmationSupprimerComponent implements OnInit, OnDestroy {
 
   constructor(
     private prestatairesService: PrestatairesService,
-    private vehiculeService: VehiculeService,
+    private sectionsService: SectionsService,
+    private secteurActiviteService: SecteurActiviteService,
+    private authorityService: AuthorityService,
     public dialogRef: MatDialogRef<PopupConfirmationSupprimerComponent>,
     @Inject(MAT_DIALOG_DATA) public informations: any,
     private notificationService: NotificationService
@@ -36,7 +41,7 @@ export class PopupConfirmationSupprimerComponent implements OnInit, OnDestroy {
     }
   }
 
-
+  
   supprimeronfirmer(id: string, categorie: string): void {
 
     switch (categorie) {
@@ -53,10 +58,10 @@ export class PopupConfirmationSupprimerComponent implements OnInit, OnDestroy {
           })
         );
         break;
-    
-      case "vehicule":
+
+      case "section":
         this.subscriptions.push(
-          this.vehiculeService.supprimerVehiculeById(id).subscribe({
+          this.sectionsService.supprimerSections(id).subscribe({
             next: (response: CustomHttpRespone) => {
               this.popupFermer();
               this.sendNotification(NotificationType.SUCCESS, response.message);
@@ -67,13 +72,44 @@ export class PopupConfirmationSupprimerComponent implements OnInit, OnDestroy {
           })
         );
         break;
-    
+
+        case "secteurActivite":
+        this.subscriptions.push(
+          this.secteurActiviteService.supprimerSecteurActivite(id).subscribe({
+            next: (response: CustomHttpRespone) => {
+              this.popupFermer();
+              this.sendNotification(NotificationType.SUCCESS, response.message);
+            },
+            error: (erreurs: HttpErrorResponse) => {
+              console.log(erreurs);
+            }
+          })
+        );
+        break;
+
+        case "authority":
+          this.subscriptions.push(
+            this.authorityService.supprimerAuthorityById(id).subscribe({
+              next: (response: CustomHttpRespone) => {
+                this.popupFermer();
+                this.sendNotification(NotificationType.SUCCESS, response.message);
+              },
+              error: (erreurs: HttpErrorResponse) => {
+                console.log(erreurs);
+              }
+            })
+          );
+          break;
+
+
+
+
       default:
-      
+
         break;
     }
-    
-    
+
+
   }
 
   ngOnInit(): void {

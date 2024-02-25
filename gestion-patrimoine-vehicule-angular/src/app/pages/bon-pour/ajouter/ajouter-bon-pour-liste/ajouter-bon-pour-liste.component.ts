@@ -94,15 +94,16 @@ export class AjouterBonPourListeComponent implements OnInit, OnDestroy {
   ];
   columnsToHide: string[] = [
     "descriptionBP",
-    "numeroCourrielOrigine",
+   // "numeroCourrielOrigine",
     "numeroArriveDLF",
-    "dateArriveDLF",
+    //"dateArriveDLF",
     "numeroArriveBLM",
     "numeroArriveSection",
     "dateArriveSection",
     "observationBP",
     "codeSection",
     "matriculeAgent",
+    "dateArriveBLM",
     "dateCourrielOrigine",
     "objectCourrielOrigine",
     "rowNombreArticleBonPour"

@@ -72,7 +72,7 @@ export class UserService {
   }
 
   public modifierUser(user: User): Observable<User> {
-    return this.httpClient.post<User>(`${this.urlServeur}/ModifierUser`, user, { withCredentials: true });
+    return this.httpClient.put<User>(`${this.urlServeur}/ModifierUser`, user, { withCredentials: true });
   }
 
   public supprimerUserById(ninea: string): Observable<CustomHttpRespone> {

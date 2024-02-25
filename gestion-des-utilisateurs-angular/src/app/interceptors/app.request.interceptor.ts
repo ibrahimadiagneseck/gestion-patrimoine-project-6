@@ -7,7 +7,8 @@ import { User } from 'src/app/model/user.model';
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
 
-  user = new User();
+  user: User = new User();
+
   constructor(private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {

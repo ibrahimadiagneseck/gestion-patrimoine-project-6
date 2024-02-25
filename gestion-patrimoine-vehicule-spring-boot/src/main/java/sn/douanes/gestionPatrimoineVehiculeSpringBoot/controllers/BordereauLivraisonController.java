@@ -23,12 +23,6 @@ public class BordereauLivraisonController {
     @Autowired
     BordereauLivraisonService bordereauLivraisonService;
 
-    @Autowired
-    SectionsService sectionsService;
-    @Autowired
-    PrestatairesService prestatairesService;
-    @Autowired
-    AgentService agentService;
 
 
 
